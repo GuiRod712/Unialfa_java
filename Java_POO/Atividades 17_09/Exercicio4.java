@@ -4,25 +4,27 @@ public class CalculoNota {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             
-            System.out.print("Digite o valor da transação do imóvel: ");
-            double valorTransacao = scanner.nextDouble();
+            System.out.print("Digite a nota da prova 1: ");
+            double notaProva1 = Double.parseDouble(scanner.nextLine());
 
-            System.out.print("Digite o valor venal do imóvel: ");
-            double valorVenal = scanner.nextDouble();
+            System.out.print("Digite a nota da prova 2: ");
+            double notaProva2 = Double.parseDouble(scanner.nextLine());
 
-            System.out.print("Digite o percentual do imposto: ");
-            double percentualImposto = scanner.nextDouble();
-
-            
-            double maiorValor = Math.max(valorTransacao, valorVenal);
+            System.out.print("Digite a nota do trabalho: ");
+            double notaTrabalho = Double.parseDouble(scanner.nextLine());
 
             
-            double valorImposto = maiorValor * percentualImposto / 100;
+            double media = (notaProva1 + notaProva2 + notaTrabalho) / 3;
 
             
-            System.out.printf("Valor do imposto a ser pago: R$ %.2f%n", valorImposto);
+            String resultado = (media >= 6) ? "Aprovado" : "Reprovado";
+
+            
+            System.out.printf("Média: %.2f%nResultado final: %s%n", media, resultado);
+
         } catch (Exception e) {
             System.out.println("Erro na entrada de dados: " + e.getMessage());
         }
     }
 }
+
